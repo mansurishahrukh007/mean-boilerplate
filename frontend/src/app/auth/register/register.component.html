@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+    <!-- <div *ngIf="isLoading" style="text-align:center">
+      <app-loading-spinner></app-loading-spinner>
+    </div> -->
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">First Name</label>
+        <input class="form-control" name="first_name" formControlName="first_name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Last Name</label>
+        <input class="form-control" name="first_name" formControlName="last_name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" name="email" formControlName="email">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" name="password" formControlName="password">
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+    </form>
+  </div>
+</div>

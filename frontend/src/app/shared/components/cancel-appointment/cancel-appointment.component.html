@@ -1,0 +1,12 @@
+<ion-content>
+  <div class="content-wrap-popup">
+    <p class="title mb-25">Cancel Appointment : {{appointmentItem.appointment_number}}</p>
+
+    <form [formGroup]="cancelForm">
+      <ion-input [ngClass]="{'form-input-error':isFormSubmitted && !cancelForm.controls.cancelReason.valid}"
+        placeholder="Reason" class="mt-15" formControlName="cancelReason">
+      </ion-input>
+      <ion-button class="btn-mt" expand="block" (click)="onSubmit()">Submit</ion-button>
+    </form>
+  </div>
+</ion-content>

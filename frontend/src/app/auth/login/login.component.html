@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="content-wrapper">
+    <div class="content-top mb-20">
+      <ion-img src="assets/images/banner.png" class="banner"></ion-img>
+      <p class="auth-heading">Login</p>
+      <div class="auth-heading-line"></div>
+
+      <form [formGroup]="loginForm">
+        <ion-input [ngClass]="{'form-input-error':isFormSubmitted && !loginForm.controls.mobile.valid}" autofocus="true"
+          placeholder="Mobile" inputmode="tel" maxlength="10" class="mt-25" formControlName="mobile"></ion-input>
+
+        <ion-item class="mt-20" [ngClass]="{'form-input-error':isFormSubmitted && !loginForm.controls.password.valid}">
+          <ion-input [type]="this.isPasswordVisible ? 'text' : 'password'" placeholder="Password"
+            formControlName="password" enterkeyhint="done"></ion-input>
+          <ion-icon slot="end" [name]="this.isPasswordVisible ? 'eye-off-outline' : 'eye-outline'"
+            (click)="onViewPassword()"></ion-icon>
+        </ion-item>
+
+        <p class="error-message mt-10" *ngIf="(serverError$ | async)">{{serverError$ | async}}</p>
+        <p class="forgot-password mt-20" (click)="goToForgotPassword()">Forgot Password?</p>
+        <ion-button class="mt-20" expand="block" (click)="onSubmit()">Submit</ion-button>
+      </form>
+    </div>
+    <div class="content-bottom align-center mb-20">
+      <p class="link-message">Don't have an account?</p>
+      <p class="link-text mt-10" (click)="redirectToRegister()">Sign Up</p>
+    </div>
+  </div>
+</ion-content>
